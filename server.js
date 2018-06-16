@@ -14,6 +14,10 @@ const express = require('express');
 // este dinamic
 const hbs = require('hbs');
 const fs = require('fs');
+
+//heroku
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 // ne permint sa creeam reusable chunk of code like headers and footers
@@ -90,6 +94,8 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on 3000');
+//heroku sets
+
+app.listen(port, () => {
+  console.log(`Server is up on ${port}`);
 });
